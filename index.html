@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- <link rel="shortcut icon" href="img/favicon.png"> -->
+
+  <title>Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap theme -->
+  <link href="css/bootstrap-theme.css" rel="stylesheet">
+  <!--external css-->
+  <!-- font icon -->
+  <link href="css/elegant-icons-style.css" rel="stylesheet" />
+  <link href="css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet" />
+
+  
+    
+</head>
+
+<body class="login-img3-body">
+
+  <div class="container">
+
+    <form class="login-form"  name="myForm" method="post">
+      <div class="login-wrap" >
+        <p class="login-img" ><img src="img/logo2.png" style="border-radius: 50%;width:60px ;" alt=""></p>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_profile"></i></span>
+          <input type="text"  name="fname" class="form-control" id="username" placeholder="Username" autofocus>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon_key_alt"></i></span>
+          <input type="password" name="pwd"  id="password" class="form-control" placeholder="Password" >
+        </div>
+        <label class="checkbox">
+                <input type="checkbox" value="remember-me"> Remember me
+                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
+            </label>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit" onclick="return validate()">Login</button>
+        <button class="btn btn-info btn-lg btn-block" type="submit" onclick=" return sign_Up()" >Signup</button>
+      </div>
+    </form>
+    <div class="text-right">
+      <div class="credits">
+          
+          Developed by  <a href="#">Nagaraj H</a>
+        </div>
+    </div>
+  </div>
+
+
+
+<script>
+
+var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "root" && password == "root123"){
+window.location = "Home.html"; // Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert(" Wrong Credetials ,You have left "+attempt+" attempt;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+ function sign_Up(){
+  window.location = "SignUp.html";
+  return false;
+}
+</script>
+
+</body>
+
+</html>
